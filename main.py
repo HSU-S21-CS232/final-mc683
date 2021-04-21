@@ -1,4 +1,4 @@
+import os
 import tweepy
-from keys import consumer_key
+from config import consumer_key, consumer_secret, access_key, access_secret
 
-print(consumer_key)
