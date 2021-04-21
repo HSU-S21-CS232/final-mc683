@@ -12,4 +12,4 @@ api = tweepy.API(auth)
 os.chdir('images')
 for game_image in os.listdir('.'):
     api.update_with_media(game_image)
-    time.sleep(5)
+    time.sleep(10)
