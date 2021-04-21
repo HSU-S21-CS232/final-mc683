@@ -2,6 +2,8 @@ import os
 import tweepy
 from config import consumer_key, consumer_secret, access_key, access_secret
 
+""" If you do not have a config.py be sure to run setup first """
+
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_key, access_secret)
 
