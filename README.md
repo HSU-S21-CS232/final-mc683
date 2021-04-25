@@ -6,3 +6,5 @@ video game related things that aren't just pictures.
 pip install tweepy
 pip install gspread
 ```
+# Bot Page
+https://twitter.com/Nelja_Games
