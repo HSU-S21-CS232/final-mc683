@@ -12,7 +12,7 @@ api = tweepy.API(auth)
 allowed_games = ["ElderScrolls", "Warcraft", "DeadByBHVR", "SeaOfThieves", "FallGuysGame", "Outriders",
                 "KineticGame", "ConcernedApe"]
 
-
+FILE_NAME = 'last_seen.txt'
 
 
 def retweet_bot():
@@ -25,21 +25,6 @@ def retweet_bot():
         except tweepy.TweepError as e:
             print(e.reason)
 
-def normal_tweet():
-    gc = gspread.service_account('credentials.json')
-
-    # Open a sheet from a spreadsheet in one go. wks means worksheet.
-    wks = gc.open("nelja-chirps").sheet1
-
-    # Update a range of cells using the top left corner address
-    # Example, wks.update('A1', [[1, 2], [3, 4]])
-    next_chirp = wks.acell('A2').value
-    api.update_status(next_chirp)
-
-    # This deletes the tweet that goes out from your spreadsheet.
-    wks.delete_rows(2)
-
-FILE_NAME = 'last_seen.txt'
 
 def read_last_seen(FILE_NAME):
     file_read = open(FILE_NAME, 'r')

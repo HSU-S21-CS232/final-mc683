@@ -1,12 +1,13 @@
 import os
-import gspread
 import time
 import tweepy
-from functions import retweet_bot, normal_tweet, tweet_page
+import gspread
+from functions import retweet_bot, tweet_page
+from google_function.regular_tweet import regular_tweet
 
 
 """ If you do not have a config.py be sure to run setup first """
 
-
+credentialPath = "./google_function/credentials.json"
 time.sleep(2)
-tweet_page()
+regular_tweet(credentialPath)
