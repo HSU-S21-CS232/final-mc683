@@ -12,11 +12,10 @@ api = tweepy.API(auth)
 allowed_games = ["ElderScrolls", "Warcraft", "DeadByBHVR", "SeaOfThieves", "FallGuysGame", "Outriders",
                 "KineticGame", "ConcernedApe"]
 
-FILE_NAME = 'last_seen.txt'
-
+FILE_NAME = './reg_functions/last_seen.txt'
+tweet_numb = 1
 
 def retweet_bot():
-    tweet_numb = 1
     tweets = tweepy.Cursor(api.user_timeline, random.choice(allowed_games)).items(tweet_numb)
     for tweet in tweets:
         try:
@@ -45,4 +44,8 @@ def tweet_page():
     for tweet in reversed(tweets):
         if '#warcraft' in tweet.full_text.lower():
             api.update_status('@' + tweet.user.screen_name + ' Warcrafts page is twitter.com/Warcraft.', tweet.id)
+            store_last_seen(FILE_NAME, tweet.id)
+
+        elif '#elderscrolls' in tweet.full_text.lower():
+            api.update_status('@' + tweet.user.screen_name + ' Elder Scrolls page is twitter.com/ElderScrolls.', tweet.id)
             store_last_seen(FILE_NAME, tweet.id)

@@ -2,7 +2,7 @@ import os
 import time
 import tweepy
 import gspread
-from functions import retweet_bot, tweet_page
+from reg_functions.functions import retweet_bot, tweet_page
 from google_function.regular_tweet import regular_tweet
 
 
@@ -10,4 +10,4 @@ from google_function.regular_tweet import regular_tweet
 
 credentialPath = "./google_function/credentials.json"
 time.sleep(2)
-regular_tweet(credentialPath)
+tweet_page()
