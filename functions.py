@@ -11,11 +11,13 @@ api = tweepy.API(auth)
 
 allowed_games = ["ElderScrolls", "Warcraft", "DeadByBHVR", "SeaOfThieves", "FallGuysGame", "Outriders",
                 "KineticGame", "ConcernedApe"]
-tweet_numb = 1
 
-tweets = tweepy.Cursor(api.user_timeline, random.choice(allowed_games)).items(tweet_numb)
+
+
 
 def retweet_bot():
+    tweet_numb = 1
+    tweets = tweepy.Cursor(api.user_timeline, random.choice(allowed_games)).items(tweet_numb)
     for tweet in tweets:
         try:
             tweet.retweet()
@@ -36,3 +38,9 @@ def normal_tweet():
 
     # This deletes the tweet that goes out from your spreadsheet.
     wks.delete_rows(2)
+
+def tweet_page():
+    tweets = api.mentions_timeline()
+    for tweet in tweets:
+        if '#warcraft' in tweet.text.lower():
+            print('twitter.com/Warcraft')
