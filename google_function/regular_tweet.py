@@ -9,6 +9,7 @@ api = tweepy.API(auth)
 
 googleSheet = 'nelja-chirps'
 
+
 # Placed parameter to avoid having to hard code in credential path.
 def regular_tweet(credentialPath):
     gc = gspread.service_account(credentialPath)
