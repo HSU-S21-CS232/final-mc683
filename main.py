@@ -11,11 +11,11 @@ from google_function.regular_tweet import regular_tweet
 
 # Credntial path for when calling regular_tweet.
 
-a_list = [retweet_bot, tweet_page, regular_tweet]
+a_list = [tweet_page, regular_tweet, retweet_bot]
 credentialPath = "./google_function/credentials.json"
 
 while True:
-    time.sleep(10)
+    time.sleep(5)
     random.choice(a_list)()
     if random.choice(a_list) == regular_tweet:
         regular_tweet(credentialPath)
