@@ -29,3 +29,4 @@ and the reason for that is because in order to use that you have to use the goog
 api for python. If you google that the first site that pops up is Python Quickstart and when
 click on that there will be a walk through on how to set up the api in your project folder
 as well setting it up with the correct email account.
+https://developers.google.com/sheets/api/quickstart/python
