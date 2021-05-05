@@ -21,3 +21,11 @@ and fill in the details for your bot and once created you will get the Consumer 
  Now that you have access to those keys and secrets you can go ahead and run the setup
   script and you will be prompted for that information, but once that is all done then
   it should be good to go. Have fun :D !
+  
+
+# Regular Tweet
+You'll see that I have regular tweet in its own section, in a folder called google_function,
+and the reason for that is because in order to use that you have to use the google sheet
+api for python. If you google that the first site that pops up is Python Quickstart and when
+click on that there will be a walk through on how to set up the api in your project folder
+as well setting it up with the correct email account.
