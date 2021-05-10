@@ -8,7 +8,7 @@ from config import consumer_key, consumer_secret, access_key, access_secret
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_key, access_secret)
 
-api = tweepy.API(auth)
+api = tweepy.API(auth, wait_on_rate_limit=True)
 
 
 
@@ -44,10 +44,10 @@ def store_last_seen(FILE_NAME, last_seen_id):
 def tweet_page():
     tweets = api.mentions_timeline(read_last_seen(FILE_NAME), tweet_mode='extended')
     for tweet in reversed(tweets):
-        if '#warcraft' in tweet.full_text.lower():
-            api.update_status('@' + tweet.user.screen_name + ' Warcrafts page is twitter.com/Warcraft.', tweet.id)
-            store_last_seen(FILE_NAME, tweet.id)
-
-        elif '#elderscrolls' in tweet.full_text.lower():
-            api.update_status('@' + tweet.user.screen_name + ' Elder Scrolls page is twitter.com/ElderScrolls.', tweet.id)
-            store_last_seen(FILE_NAME, tweet.id)
+        for games in allowed_games:
+            if games.lower() in tweet.full_text.lower():
+                game = games[1:]
+                api.update_status('@' + tweet.user.screen_name + f' This games page is twitter.com/{game}.', tweet.id)
+                store_last_seen(FILE_NAME, tweet.id)
+                print("page printed")
+                break
