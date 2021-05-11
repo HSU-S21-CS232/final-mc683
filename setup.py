@@ -14,3 +14,4 @@ if(os.path.exists('config.py') == False):
         print("consumer_secret = '", consumer_secret, "'", file=file, sep='')
         print("access_key = '", access_key, "'", file=file, sep='')
         print("access_secret = '", access_secret, "'", file=file, sep='')
+

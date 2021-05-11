@@ -2,13 +2,13 @@ import tweepy
 import random
 import os
 import gspread
-from reg_functions.game_twitter import allowed_games
+from reg_functions.game_twitter import allowed_games, games_page
 from config import consumer_key, consumer_secret, access_key, access_secret
 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_key, access_secret)
 
-api = tweepy.API(auth, wait_on_rate_limit=True)
+api = tweepy.API(auth)
 
 
 
@@ -16,7 +16,7 @@ FILE_NAME = './reg_functions/last_seen.txt'
 tweet_numb = 1
 
 def retweet_bot():
-    tweets = tweepy.Cursor(api.user_timeline, random.choice(allowed_games)).items(tweet_numb)
+    tweets = tweepy.Cursor(api.user_timeline, random.choice(games_page)).items(tweet_numb)
     for tweet in tweets:
         try:
             tweet.retweet()
